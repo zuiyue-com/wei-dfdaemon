@@ -1,0 +1,6 @@
+{
+    "insecure-registries" : [
+        "registry-1.docker.io", 
+        "registry.cn-beijing.aliyuncs.com"
+    ]
+}

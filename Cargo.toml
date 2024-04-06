@@ -1,0 +1,11 @@
+[package]
+name = "wei-dfdaemon"
+version = "0.3.1"
+edition = "2021"
+description = "wei dfdaemon"
+documentation = "https://github.com/zuiyue-com/wei-dfdaemon"
+homepage = "https://github.com/zuiyue-com/wei-dfdaemon"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+wei-run = "0.3.2"
