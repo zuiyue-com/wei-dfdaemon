@@ -2,7 +2,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 使用本地dfget_config/daemon.json 比对文件内容 /etc/docker/daemon.json
     println!("比对daemon.json");
     let daemon_json = std::fs::read_to_string("./dfget_config/daemon.json")?;
-    let docker_daemon_json = std::fs::read_to_string("/etc/docker/daemon.json")?;
+    let docker_daemon_json = match std::fs::read_to_string("/etc/docker/daemon.json") {
+        Ok(json) => json,
+        Err(_) => "".to_string()
+    };
     if daemon_json != docker_daemon_json {
         std::fs::write("/etc/docker/daemon.json", daemon_json)?;
         wei_run::command("systemctl", vec!["restart", "docker"])?;
