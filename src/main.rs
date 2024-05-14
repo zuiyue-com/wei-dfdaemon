@@ -7,6 +7,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         Err(_) => "".to_string()
     };
     if daemon_json != docker_daemon_json {
+        std::fs::create_dir_all("/etc/docker")?;
         std::fs::write("/etc/docker/daemon.json", daemon_json)?;
         wei_run::command("systemctl", vec!["restart", "docker"])?;
     }
