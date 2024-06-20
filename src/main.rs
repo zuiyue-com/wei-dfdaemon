@@ -1,4 +1,26 @@
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let file_name = format!("{}docker-proxy.dat", wei_env::home_dir()?);
+    let data = match std::fs::read_to_string(file_name.clone()) {
+        Ok(data) => data,
+        Err(_) => "".to_string()
+    };
+
+    let data = data.trim();
+
+    println!("data: {}", data);
+
+    if data == "false" {
+        std::thread::sleep(std::time::Duration::from_secs(300));
+        return Ok(());
+    }
+
+    if data == "0" {
+        std::fs::write("/etc/systemd/system/docker.service.d/http-proxy.conf", "")?;
+        wei_run::command("systemctl", vec!["daemon-reload"])?;
+        std::fs::write(file_name, "false")?;
+        return Ok(());
+    }
+
     // 使用本地dfget_config/daemon.json 比对文件内容 /etc/docker/daemon.json
     println!("比对daemon.json");
     let daemon_json = std::fs::read_to_string("./dfget_config/daemon.json")?;

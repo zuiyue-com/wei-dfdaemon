@@ -34,7 +34,7 @@ scheduler:
 host:
   # # Access ip for other peers,
   # # when local ip is different with access ip, advertiseIP should be set.
-  advertiseIP: 58.63.136.107
+  advertiseIP: 59.42.91.39
   # Geographical location, separated by "|" characters.
   location: ''
   # IDC deployed by daemon.
