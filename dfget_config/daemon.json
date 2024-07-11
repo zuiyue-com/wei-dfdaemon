@@ -1,6 +1,6 @@
 {
     "insecure-registries" : [
-        "r.xlai.cc:5000",
+        "xlai.cc",
         "registry-1.docker.io", 
         "registry.cn-beijing.aliyuncs.com"
     ]
