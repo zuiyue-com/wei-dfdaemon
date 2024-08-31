@@ -2,7 +2,9 @@
     "insecure-registries" : [
         "xlai.cc",
 	    "xlai.cc:5000",
+        "docker.burncloud.net",
         "registry-1.docker.io", 
-        "registry.cn-beijing.aliyuncs.com"
+        "registry.cn-beijing.aliyuncs.com",
+        "registry.cn-hangzhou.aliyuncs.com"
     ]
 }
